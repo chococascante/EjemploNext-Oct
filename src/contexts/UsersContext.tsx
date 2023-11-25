@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import type { User } from "../types";
 
@@ -50,6 +51,8 @@ export const UsersContextProvider: React.FC<React.PropsWithChildren> =
       </UsersContext.Provider>
     );
   });
+
+UsersContextProvider.displayName = "UsersContextProvider";
 
 //2. Crear un hook para consumir el contexto
 export const useUserContext = () =>

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { ListaComentarios } from "../../organisms/ListaComentarios";
 import { ListItem, Card, CardContent, Typography } from "@mui/material";
