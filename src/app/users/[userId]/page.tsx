@@ -1,3 +1,4 @@
+import { ProtectedPage } from "@/components/wrappers/ProtectedPage";
 import React from "react";
 
 // /users/[userId]
@@ -9,10 +10,12 @@ const UserProfile = async ({
   const datosUsuario = await traerDatosUsuario(userId);
 
   return (
-    <div>
-      <h1>{datosUsuario.name}</h1>
-      <p>{datosUsuario.email}</p>
-    </div>
+    <ProtectedPage>
+      <div>
+        <h1>{datosUsuario.name}</h1>
+        <p>{datosUsuario.email}</p>
+      </div>
+    </ProtectedPage>
   );
 };
 

@@ -32,10 +32,10 @@ const FirebaseAuthContext = React.createContext<FirebaseAuthContextProps>({
 
 export const FirebaseAuthContextProvider: React.FC<React.PropsWithChildren> =
   React.memo(({ children }) => {
-    const router = useRouter();
-    // router.push("/");
     const [user, setUser] = React.useState<User | undefined>(undefined);
     const [loadingAuthState, setLoadingAuthState] = React.useState(true);
+
+    console.log(loadingAuthState);
 
     const login = React.useCallback(async (email: string, password: string) => {
       try {
@@ -49,13 +49,15 @@ export const FirebaseAuthContextProvider: React.FC<React.PropsWithChildren> =
         //
         // userCredential.user.refreshToken;
         setUser(userCredential.user);
-        setLoadingAuthState(false);
       } catch (error) {
         // Sentry => capturar el error
         // LogRocket => capturar el error
         console.error(error);
+      } finally {
+        setLoadingAuthState(false);
       }
     }, []);
+
     const registerUser = React.useCallback(
       async (email: string, password: string) => {
         try {
@@ -69,11 +71,12 @@ export const FirebaseAuthContextProvider: React.FC<React.PropsWithChildren> =
           //
           // userCredential.user.refreshToken;
           setUser(userCredential.user);
-          setLoadingAuthState(false);
         } catch (error) {
           // Sentry => capturar el error
           // LogRocket => capturar el error
           console.error(error);
+        } finally {
+          setLoadingAuthState(false);
         }
       },
       []

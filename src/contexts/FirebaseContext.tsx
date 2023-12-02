@@ -10,12 +10,13 @@ import { Auth, getAuth } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseCredentials: FirebaseOptions = {
-  apiKey: "",
-  appId: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
+  apiKey: "AIzaSyDBdPSnVWK4wFnoArhQhMj09P8739RZ2OY",
+  authDomain: "react-oct-2023.firebaseapp.com",
+  projectId: "react-oct-2023",
+  storageBucket: "react-oct-2023.appspot.com",
+  messagingSenderId: "146387142775",
+  appId: "1:146387142775:web:eb8137386176807cf95e72",
+  measurementId: "G-L9747F715X",
 };
 
 let app: FirebaseApp | null = null;

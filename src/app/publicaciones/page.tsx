@@ -1,4 +1,5 @@
 import { ListaPublicaciones } from "@/components/organisms/ListaPublicaciones";
+import { ProtectedPage } from "@/components/wrappers/ProtectedPage";
 import { Post, User, Comment } from "@/types";
 import axios from "axios";
 import React from "react";
@@ -6,10 +7,10 @@ import React from "react";
 const Publicaciones = async () => {
   const publicaciones = await getData();
   return (
-    <>
+    <ProtectedPage>
       <p>Existen {publicaciones.length} publicaciones:</p>
       <ListaPublicaciones publicaciones={publicaciones} />
-    </>
+    </ProtectedPage>
   );
 };
 
